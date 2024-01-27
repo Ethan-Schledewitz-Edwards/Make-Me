@@ -12,9 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4a0351bc869e8734e9f25f2d8c79d885, type: 3}
   m_Name: MicroGameIndex
   m_EditorClassIdentifier: 
-  _titleSceneID: 
-  _makeMeSceneID: 
-  _endItSceneID: 
-  _firstActIDs: []
-  _secondActIDs: []
-  _thirdActIDs: []
+  microGames:
+  - 

@@ -20,14 +20,15 @@ public class GameManager : MonoBehaviour
         }
     }
 
-    [Header("MicroGameIndex")]
 
     [Header("Components")]
+    [SerializeField] private SceneLoader _sceneLoader;
 
 
     [Header("System")]
     private int currentLives;
     private float GameSpeedMult;
+    private int microGameCount;
     private bool countingDown;
     private float timeRemaining;
 
@@ -76,27 +77,10 @@ public class GameManager : MonoBehaviour
         // initialize game values
         currentLives = 3;
         GameSpeedMult = 1f;
+        microGameCount = 0;
 
         // Load the first micro game
-        string firstMicroGame = GetNextMicroGame();
-        SceneLoader.Instance.LoadScene(firstMicroGame);
-    }
-
-
-    /// <summary>
-    /// Returns the name of the next MicroGame's scene.
-    /// </summary>
-    /// <returns></returns>
-    private string GetNextMicroGame()
-    {
-        string name = null;
-
-
-        //ZZZ
-        //This is next
-
-
-        return name;
+        _sceneLoader.LoadScene(_sceneLoader.MicroGame_Index.ReturnNextScene(microGameCount));
     }
 
     #region MicroGame state methods
@@ -106,6 +90,7 @@ public class GameManager : MonoBehaviour
     public void FinishMicroGame()
     {
         countingDown = false;
+        microGameCount++;
     }
 
     /// <summary>
@@ -115,6 +100,7 @@ public class GameManager : MonoBehaviour
     {
         countingDown = false;
         currentLives--;
+        microGameCount++;
     }
     #endregion
 
