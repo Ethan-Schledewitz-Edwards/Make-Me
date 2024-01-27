@@ -27,7 +27,7 @@ public class GameManager : MonoBehaviour
 
     [Header("System")]
     private int currentLives;
-    private float microGameSpeed;
+    private float GameSpeedMult;
     private bool countingDown;
     private float timeRemaining;
 
@@ -68,23 +68,33 @@ public class GameManager : MonoBehaviour
 
 
 
-
     /// <summary>
     /// This method is called by the GameInitilializer, it starts the MicroGame loop.
     /// </summary>
     public void StartMicroGames()
     {
+        // initialize game values
         currentLives = 3;
+        GameSpeedMult = 1f;
+
+        // Load the first micro game
+        string firstMicroGame = GetNextMicroGame();
+        SceneLoader.Instance.LoadScene(firstMicroGame);
     }
 
 
     /// <summary>
-    /// Returns the name of the next MicroGames scene.
+    /// Returns the name of the next MicroGame's scene.
     /// </summary>
     /// <returns></returns>
     private string GetNextMicroGame()
     {
         string name = null;
+
+
+        //ZZZ
+        //This is next
+
 
         return name;
     }
