@@ -2,17 +2,22 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class InputManager : MonoBehaviour
+public static class InputManager
 {
-    // Start is called before the first frame update
-    void Start()
+    public static Controls controls;
+    static bool initialized = false;
+
+    public static void Init()
     {
-        
+        if (initialized) return;
+        controls = new Controls();
+        controls.Enable();
+        initialized = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    public static void Destroy()
     {
-        
+        controls.Dispose();
+        initialized = false;
     }
 }

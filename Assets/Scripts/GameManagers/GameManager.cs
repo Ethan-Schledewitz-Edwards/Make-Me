@@ -20,8 +20,12 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [Header("Components")]
+
+
     [Header("System")]
     private int currentLives;
+    private float microGameSpeed;
     private bool countingDown;
     private float timeRemaining;
 
@@ -64,14 +68,14 @@ public class GameManager : MonoBehaviour
 
 
     /// <summary>
-    /// This method is used to start a micro game
+    /// This method is called by the GameInitilializer, it starts the MicroGame loop.
     /// </summary>
-    public void BeginMicroGame()
+    public void StartMicroGames()
     {
-        countingDown = true;
+        Debug.Log("YOOOO");
     }
 
-
+    #region MicroGame state methods
     /// <summary>
     /// This method should be called when a player completes a micro game.
     /// </summary>
@@ -88,4 +92,15 @@ public class GameManager : MonoBehaviour
         countingDown = false;
         currentLives--;
     }
+    #endregion
+
+    #region Scene transition methods
+    /// <summary>
+    /// This method is used to start a micro game after the transition has finished
+    /// </summary>
+    public void BeginMicroGame()
+    {
+        countingDown = true;
+    }
+    #endregion
 }
