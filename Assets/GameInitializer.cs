@@ -12,7 +12,7 @@ public class GameInitializer : MonoBehaviour
     private void Start()
     {
         //Subscribe SetMovementDirection to game buttons
-        InputManager.controls.Game.LeftClick.performed += context =>
+        InputManager.controls.Game.Space.performed += context =>
         {
             StartGames();
         };
