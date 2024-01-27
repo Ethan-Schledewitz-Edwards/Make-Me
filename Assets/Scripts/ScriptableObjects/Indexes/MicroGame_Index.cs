@@ -25,10 +25,11 @@ public class MicroGame_Index : ScriptableObject
         return _titleSceneID;
     }
 
-    public string GetmMakeMeID()
+    public string GetFinalSceneID()
     {
-        return _makeMeSceneID;
+        return _endItSceneID;
     }
+
 
     public string ReturnRandomScene(SceneAct sceneAct)
     {
