@@ -8,11 +8,11 @@ public enum SceneAct
     Third
 }
 
-public class MinigameScenes_Index : ScriptableObject
+[CreateAssetMenu(fileName = "MicroGameIndex", menuName = "Indexes/MicroGameIndex", order = 0)]
+public class MicroGame_Index : ScriptableObject
 {
     [Header("Sequence dependent IDs")]
     [SerializeField] private string _titleSceneID;
-    [SerializeField] private string _makeMeSceneID;
     [SerializeField] private string _endItSceneID;
 
     [Header("Act ID's")]

@@ -20,6 +20,8 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    [Header("MicroGameIndex")]
+
     [Header("Components")]
 
 
@@ -72,7 +74,19 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void StartMicroGames()
     {
-        Debug.Log("YOOOO");
+        currentLives = 3;
+    }
+
+
+    /// <summary>
+    /// Returns the name of the next MicroGames scene.
+    /// </summary>
+    /// <returns></returns>
+    private string GetNextMicroGame()
+    {
+        string name = null;
+
+        return name;
     }
 
     #region MicroGame state methods
