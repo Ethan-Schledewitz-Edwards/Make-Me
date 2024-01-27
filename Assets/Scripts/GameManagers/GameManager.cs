@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
             timeRemaining -= Time.deltaTime;
 
             if (timeRemaining <= 0)
-                FinishMicroGame();
+                FailMicroGame();
         }
     }
 
@@ -86,5 +86,6 @@ public class GameManager : MonoBehaviour
     public void FailMicroGame()
     {
         countingDown = false;
+        currentLives--;
     }
 }
