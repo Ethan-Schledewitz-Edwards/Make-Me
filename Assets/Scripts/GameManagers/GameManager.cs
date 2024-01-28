@@ -154,4 +154,11 @@ public class GameManager : MonoBehaviour
         gameCounter++;
     }
     #endregion
+
+
+
+    public int ReturnLivesRemaining()
+    {
+        return currentLives;
+    }
 }

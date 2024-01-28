@@ -25,6 +25,7 @@ public class UIManager : MonoBehaviour
 
     [Header("UI Elements")]
     [SerializeField] private GameObject _alpha;
+    [SerializeField] private LifeIconComponent[] _lives;
     [SerializeField] private TextMeshProUGUI _promptText;
 
 
@@ -63,6 +64,15 @@ public class UIManager : MonoBehaviour
     public void LoadNextScene()
     {
         SceneLoader.Instance.LoadScene(_gameManager.GetCurrentMicrogame().SceneID);
+    }
+
+    public void LoseLife()
+    {
+        for (int i = 0; i < _lives.Length; i++)
+        {
+            if (i > _gameManager.ReturnLivesRemaining() - 1)
+                _lives[i].LoseLife();
+        }
     }
 
     public void TransitionFinish()

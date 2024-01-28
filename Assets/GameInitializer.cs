@@ -18,6 +18,11 @@ public class GameInitializer : MonoBehaviour
         };
     }
 
+    private void OnDestroy()
+    {
+        InputManager.Destroy();
+    }
+
     private void StartGames()
     {
         // Start the first MicroGame using the GameManager
