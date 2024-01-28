@@ -13,17 +13,12 @@ public abstract class IDraggable: MonoBehaviour
     [SerializeField] private Sprite _regularSprite;
     [SerializeField] private Sprite _interactSprite;
 
-    [Header("Components")]
-    Camera cam;
-
     [Header("System")]
     protected Vector3 currentPos;
     private bool followingMouse;
 
     public void Start()
     {
-        cam = Camera.current;
-
         press.Enable();
         mousePos.Enable();
 

@@ -6,17 +6,12 @@ public class Gun : IDraggable
 
     public override void Click()
     {
-        Debug.Log(PlayerInput.Instance.GetMousePos());
-
         RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(PlayerInput.Instance.GetMousePos()), -Vector2.up, layersTargetted);
         if (hit)
         {
-            Debug.Log(hit.transform.name);
-
             ITrigger clown = hit.transform.GetComponent<ITrigger>();
             if (clown.ID == "Clown")
             {
-                Debug.Log("BALLZ");
                 clown.Trigger();
             }
         }
