@@ -1,7 +1,5 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
+
 
 public class FeatherScript : MonoBehaviour
 {
@@ -25,6 +23,7 @@ public class FeatherScript : MonoBehaviour
     private void OnMouseDrag()
     {
         dragging = !dragging;
-        Debug.Log("gorbonzo");
+
+        MicroGameManager.Instance.AddPoint();
     }
 }

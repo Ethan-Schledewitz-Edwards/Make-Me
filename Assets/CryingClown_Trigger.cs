@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class CryingClown : ITrigger
+public class CryingClown_Trigger : ITrigger
 {
     [Header("Components")]
     [SerializeField] private Animator _animator;
@@ -9,6 +9,7 @@ public class CryingClown : ITrigger
     {
         Debug.Log("DIE");
         _animator.SetTrigger("Shot");
+        PlayerInput.Instance.SetInputEnabled(false);
     }
 
 

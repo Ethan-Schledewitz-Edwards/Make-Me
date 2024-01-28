@@ -2,7 +2,7 @@ using UnityEngine;
 
 public abstract class MicroGameManager : MonoBehaviour
 {
-    public static MicroGameManager instance;
+    public static MicroGameManager Instance;
 
     private MicroGame microGame;
     private int pointsRequired;
@@ -11,7 +11,7 @@ public abstract class MicroGameManager : MonoBehaviour
 
     private void Awake()
     {
-        instance = this;
+        Instance = this;
 
         if (PlayerInput.Instance == null)
             PlayerInput.Instance.SetInputEnabled(true);

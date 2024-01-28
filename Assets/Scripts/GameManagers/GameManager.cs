@@ -33,9 +33,6 @@ public class GameManager : MonoBehaviour
     private bool countingDown;
     private float timeRemaining;
 
-    public event Action OnComplete;
-    public event Action OnFail;
-
 
 
 
@@ -51,12 +48,6 @@ public class GameManager : MonoBehaviour
     private void Awake()
     {
         instance = this;
-
-        // Finish micro game subscribes to on OnComplete event
-        OnComplete += CompleteMicroGame;
-
-        // Fail micro game subscribes to OnFail event
-        OnFail += FailMicroGame;
     }
     #endregion
 
@@ -125,7 +116,7 @@ public class GameManager : MonoBehaviour
         FinishMicroGame();
 
         currentMicroGame = _sceneLoader.MicroGame_Index.ReturnNextGame(gameCounter);
-        _uIManager.StartMakeMeAnim(currentMicroGame);// Passes the prompt name to the UI
+        _uIManager.CompleteMakeMeAnim(currentMicroGame);// Passes the prompt name to the UI
     }
 
 
@@ -158,6 +149,8 @@ public class GameManager : MonoBehaviour
     {
         PlayerInput.Instance.SetInputEnabled(false);
         countingDown = false;
+
+        Debug.Log("HEH?");
         gameCounter++;
     }
     #endregion

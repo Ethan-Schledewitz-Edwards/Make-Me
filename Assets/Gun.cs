@@ -17,9 +17,4 @@ public class Gun : IDraggable
         }
         
     }
-
-    public override void Pickup()
-    {
-        throw new System.NotImplementedException();
-    }
 }

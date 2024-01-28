@@ -49,6 +49,13 @@ public class UIManager : MonoBehaviour
         _promptText.text = microGame.PromptName;
     }
 
+    public void CompleteMakeMeAnim(MicroGame microGame)
+    {
+        Animator.SetTrigger("Complete");
+        _contextText.text = microGame.Context;
+        _promptText.text = microGame.PromptName;
+    }
+
 
 
 

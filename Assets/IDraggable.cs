@@ -43,10 +43,5 @@ public abstract class IDraggable: MonoBehaviour
         }
     }
 
-    public virtual void Pickup()
-    {
-        followingMouse = true;
-    }
-
     public abstract void Click();
 }
