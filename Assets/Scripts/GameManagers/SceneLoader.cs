@@ -1,3 +1,4 @@
+using UnityEditor.SearchService;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -21,19 +22,27 @@ public class SceneLoader : MonoBehaviour
     [field: Header("MicroGameIndex")]
     [field: SerializeField] public MicroGame_Index MicroGame_Index { get; private set; }
 
+
+
+
+
     private void Awake()
     {
         instance = this;
     }
 
+
+
+
+
     public void LoadScene(string scenename)
     {
-        Scene scene = SceneManager.GetSceneByName(scenename);
-        if (scene != null)
-        {
-            LoadScene(scene.buildIndex);
-        }
+        SceneManager.LoadScene(scenename);
     }
+
+
+
+
 
     public void LoadScene(int sceneID)
     {

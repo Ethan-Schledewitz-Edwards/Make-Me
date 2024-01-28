@@ -12,8 +12,10 @@ public class MicroGame_Index : ScriptableObject
         string name = "";
 
         if (currentMicroGame <= microGames.Count)
-            name = microGames[currentMicroGame + 1];
+            name = microGames[currentMicroGame];
 
+
+        Debug.Log(name);
         return name;
     }
 }

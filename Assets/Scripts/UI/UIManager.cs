@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -18,7 +16,27 @@ public class UIManager : MonoBehaviour
         }
     }
 
-   // [Header("System")]
+    [Header("Components")]
+    [SerializeField] private Animator Animator;
+
+
+
+
+
+    public void StartMakeMeAnim()
+    {
+        Animator.SetTrigger("MakeMe");
+    }
+
+
+
+
+    public void FailedMakeMeAnim()
+    {
+        Animator.SetTrigger("Failed");
+    }
+
+
 
 
     private void Awake()

@@ -22,6 +22,7 @@ public class GameManager : MonoBehaviour
 
 
     [Header("Components")]
+    [SerializeField] private UIManager _uIManager;
     [SerializeField] private SceneLoader _sceneLoader;
 
 
@@ -74,13 +75,18 @@ public class GameManager : MonoBehaviour
     /// </summary>
     public void StartMicroGames()
     {
-        // initialize game values
+        // Initialize game values
         currentLives = 3;
         GameSpeedMult = 1f;
         microGameCount = 0;
 
         // Load the first micro game
-        _sceneLoader.LoadScene(_sceneLoader.MicroGame_Index.ReturnNextScene(microGameCount));
+        _uIManager.StartMakeMeAnim();
+    }
+
+    public int GetCurrentMicrogame()
+    {
+        return microGameCount;
     }
 
     #region MicroGame state methods
@@ -101,6 +107,7 @@ public class GameManager : MonoBehaviour
         countingDown = false;
         currentLives--;
         microGameCount++;
+        Debug.Log("Failed");
     }
     #endregion
 
@@ -111,6 +118,7 @@ public class GameManager : MonoBehaviour
     public void BeginMicroGame()
     {
         countingDown = true;
+        timeRemaining = 5;
     }
     #endregion
 }

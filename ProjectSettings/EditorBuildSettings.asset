@@ -9,15 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/LandingPage.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
   - enabled: 1
-    path: Assets/Scenes/MakeMeLaugh/MakeMeLaugh1.unity
-    guid: d17f628cdb12f334086fcbdd2f29ce9f
+    path: Assets/Scenes/MakeMeLaugh.unity
+    guid: 8d2eb3f7548db2046bb1268bfc3e1b4f
   - enabled: 1
-    path: Assets/Scenes/MakeMeLaugh/MakeMeLaugh2.unity
-    guid: 4f7bf311cb465bf4fb8b818ee03fb50d
-  - enabled: 1
-    path: Assets/Scenes/MakeMeLaugh/MakeMeLaugh3.unity
-    guid: f03c773e40d1ac243b0e1ed5878df0c3
-  - enabled: 1
-    path: Assets/Scenes/MakeItStop.unity
-    guid: 26a8a763c30b8d844bbdb29e262b0a15
+    path: Assets/Scenes/MakeMeDance.unity
+    guid: 5910a1595b27c3540a46efd8dc071c34
   m_configObjects: {}
