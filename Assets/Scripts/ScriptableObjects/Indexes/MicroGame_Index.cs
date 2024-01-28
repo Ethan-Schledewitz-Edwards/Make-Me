@@ -9,12 +9,10 @@ public class MicroGame_Index : ScriptableObject
 
     public string ReturnNextScene(int currentMicroGame)
     {
-        string name = null;
+        string name = "";
 
         if (currentMicroGame <= microGames.Count)
-        {
             name = microGames[currentMicroGame + 1];
-        }
 
         return name;
     }
