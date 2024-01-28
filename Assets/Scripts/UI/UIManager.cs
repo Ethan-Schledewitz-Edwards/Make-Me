@@ -26,6 +26,7 @@ public class UIManager : MonoBehaviour
     [Header("UI Elements")]
     [SerializeField] private GameObject _alpha;
     [SerializeField] private LifeIconComponent[] _lives;
+    [SerializeField] private TextMeshProUGUI _contextText;
     [SerializeField] private TextMeshProUGUI _promptText;
 
 
@@ -44,6 +45,7 @@ public class UIManager : MonoBehaviour
     public void StartMakeMeAnim(MicroGame microGame)
     {
         Animator.SetTrigger("MakeMe");
+        _contextText.text = microGame.Context;
         _promptText.text = microGame.PromptName;
     }
 
@@ -52,7 +54,10 @@ public class UIManager : MonoBehaviour
 
     public void FailedMakeMeAnim(MicroGame microGame)
     {
+        Debug.Log("BALLZ");
+
         Animator.SetTrigger("Failed");
+        _contextText.text = microGame.Context;
         _promptText.text = microGame.PromptName;
     }
     #endregion

@@ -85,7 +85,7 @@ public class GameManager : MonoBehaviour
     public void BeginMicroGame()
     {
         countingDown = true;
-        timeRemaining = currentMicroGame.Time;
+        timeRemaining = currentMicroGame.TimeAllowed;
     }
 
 
@@ -118,7 +118,7 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// This method should be called when a player completes a MicroGame.
     /// </summary>
-    private void CompleteMicroGame()
+    public void CompleteMicroGame()
     {
         FinishMicroGame();
 
@@ -132,7 +132,7 @@ public class GameManager : MonoBehaviour
     /// <summary>
     /// This method should be called when a player fails a MicroGame.
     /// </summary>
-    private void FailMicroGame()
+    public void FailMicroGame()
     {
         FinishMicroGame();
         currentLives--;

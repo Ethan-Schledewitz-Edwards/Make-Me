@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MakeMeDance.unity
     guid: 5910a1595b27c3540a46efd8dc071c34
+  - enabled: 1
+    path: Assets/Scenes/MakeItStop.unity
+    guid: 26a8a763c30b8d844bbdb29e262b0a15
   m_configObjects: {}

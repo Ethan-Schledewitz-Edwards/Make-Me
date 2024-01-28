@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class GameInitializer : MonoBehaviour
 {
+    private bool started;
+
     private void Awake()
     {
         InputManager.Init();
@@ -12,17 +14,15 @@ public class GameInitializer : MonoBehaviour
         //Subscribe SetMovementDirection to game buttons
         InputManager.controls.Game.Space.performed += context =>
         {
-            StartGames();
+            if (!started)
+                StartGames();
         };
-    }
-
-    private void OnDestroy()
-    {
-        InputManager.Destroy();
     }
 
     private void StartGames()
     {
+        started = true;
+
         // Start the first MicroGame using the GameManager
         GameManager.Instance.StartMicroGameLoop();
     }
