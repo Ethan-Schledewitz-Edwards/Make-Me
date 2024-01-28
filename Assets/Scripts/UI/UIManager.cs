@@ -28,6 +28,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private LifeIconComponent[] _lives;
     [SerializeField] private TextMeshProUGUI _contextText;
     [SerializeField] private TextMeshProUGUI _promptText;
+    [SerializeField] private TextMeshProUGUI _timerText;
 
 
 
@@ -91,4 +92,11 @@ public class UIManager : MonoBehaviour
         _gameManager.BeginMicroGame();
     }
     #endregion
+
+
+
+    public void SetTimer(float time)
+    {
+        _timerText.text = ((int)time).ToString();
+    }
 }

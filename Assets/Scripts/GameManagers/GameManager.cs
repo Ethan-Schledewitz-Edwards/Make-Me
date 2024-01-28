@@ -77,6 +77,7 @@ public class GameManager : MonoBehaviour
     {
         countingDown = true;
         timeRemaining = currentMicroGame.TimeAllowed;
+        UIManager.Instance.SetTimer(timeRemaining);
         PlayerInput.Instance.SetInputEnabled(true);
     }
 
@@ -88,6 +89,7 @@ public class GameManager : MonoBehaviour
         if (countingDown)
         {
             timeRemaining -= Time.deltaTime;
+            UIManager.Instance.SetTimer(timeRemaining);
 
             if (timeRemaining <= 0)
                 FailMicroGame();

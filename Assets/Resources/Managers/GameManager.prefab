@@ -1035,6 +1035,7 @@ MonoBehaviour:
   - {fileID: 8440949155422897664}
   _contextText: {fileID: 2435365213949462567}
   _promptText: {fileID: 4027006282929384708}
+  _timerText: {fileID: 8427667799482568371}
 --- !u!1 &3842529897833237759
 GameObject:
   m_ObjectHideFlags: 0
