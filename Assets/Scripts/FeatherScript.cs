@@ -1,9 +1,11 @@
 using UnityEngine;
 
 
-public class FeatherScript : MonoBehaviour
+public class FeatherScript : ITrigger
 {
     private bool dragging = false;
+
+    public string ID => throw new System.NotImplementedException();
 
     // Start is called before the first frame update
     void Start()
@@ -16,7 +18,7 @@ public class FeatherScript : MonoBehaviour
     {
         if (dragging)
         {
-            gameObject.transform.position = Input.mousePosition;
+            //gameObject.transform.position = Input.mousePosition;
         }
     }
 
@@ -24,6 +26,11 @@ public class FeatherScript : MonoBehaviour
     {
         dragging = !dragging;
 
+        MicroGameManager.Instance.AddPoint();
+    }
+
+    public void Trigger()
+    {
         MicroGameManager.Instance.AddPoint();
     }
 }

@@ -26,11 +26,7 @@ public abstract class IDraggable: MonoBehaviour
             followingMouse = true;
 
         //Subscribe SetMovementDirection to game buttons
-        InputManager.controls.Game.LeftClick.performed += context =>
-        {
-            if (PlayerInput.Instance.CheckInputEnabled())
-                Click();
-        };
+        PlayerInput.Instance.OnClick += Click;
     }
 
     private void FixedUpdate()

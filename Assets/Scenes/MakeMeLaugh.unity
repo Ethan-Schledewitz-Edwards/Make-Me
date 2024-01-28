@@ -136,7 +136,7 @@ GameObject:
   - component: {fileID: 94814670}
   - component: {fileID: 94814669}
   m_Layer: 0
-  m_Name: Triangle
+  m_Name: Feather?
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -199,6 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a6b993dc6f5e3ba4bb527f480708e6b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <ID>k__BackingField: Feather
+  dragging: 0
 --- !u!212 &94814671
 SpriteRenderer:
   m_ObjectHideFlags: 0

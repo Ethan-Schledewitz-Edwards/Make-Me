@@ -10554,8 +10554,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83a17607c3a2acb49bbd5947029eca67, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <ID>k__BackingField: Clown
   _animator: {fileID: 2128657957}
+  id: Clown
 --- !u!61 &2128657959
 BoxCollider2D:
   m_ObjectHideFlags: 0

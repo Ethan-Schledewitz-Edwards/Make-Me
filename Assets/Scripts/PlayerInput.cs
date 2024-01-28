@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 // Instead of having the player hard coded for each scene, this will be on the game manager and will serve as the player between scenes.
@@ -21,6 +22,8 @@ public class PlayerInput : MonoBehaviour
     private bool takesInput = true;
     private Vector3 currentPos;
 
+    public event Action OnClick;
+
     private void Awake()
     {
         instance = this;
@@ -34,7 +37,15 @@ public class PlayerInput : MonoBehaviour
             if (takesInput)
                 currentPos = context.ReadValue<Vector2>(); 
         };
+
+        InputManager.controls.Game.LeftClick.performed += context =>
+        {
+            if (takesInput && OnClick != null)
+                OnClick.Invoke();
+        };
     }
+
+
 
     public bool CheckInputEnabled()
     {

@@ -1,11 +1,14 @@
 using UnityEngine;
 
-public class CryingClown_Trigger : ITrigger
+public class CryingClown_Trigger : MonoBehaviour, ITrigger
 {
     [Header("Components")]
     [SerializeField] private Animator _animator;
 
-    public override void Trigger()
+    [SerializeField] private string id;
+    public string ID => id;
+
+    public void Trigger()
     {
         Debug.Log("DIE");
         _animator.SetTrigger("Shot");

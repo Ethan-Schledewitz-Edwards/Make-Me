@@ -39,7 +39,6 @@ public class GameManager : MonoBehaviour
     #region Init Methods
     public static GameObject CreateSingletonManager()
     {
-        Debug.Log("f");
         var managerPrefab = Instantiate(Resources.Load<GameObject>("Managers/GameManager"));
         DontDestroyOnLoad(managerPrefab);
         return managerPrefab;

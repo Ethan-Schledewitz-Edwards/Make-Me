@@ -15,6 +15,5 @@ public class Gun : IDraggable
                 clown.Trigger();
             }
         }
-        
     }
 }

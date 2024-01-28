@@ -1,8 +1,8 @@
 using UnityEngine;
 
-public abstract class ITrigger : MonoBehaviour
+public interface ITrigger
 {
-   [field: SerializeField] public string ID { get; private set; }
+   [field: SerializeField] public string ID { get; }
 
     public abstract void Trigger();
 }
