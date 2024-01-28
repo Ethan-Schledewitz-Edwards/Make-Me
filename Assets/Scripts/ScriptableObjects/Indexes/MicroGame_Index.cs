@@ -5,17 +5,19 @@ using UnityEngine;
 public class MicroGame_Index : ScriptableObject
 {
     [Header("Act ID's")]
-    [field: SerializeField] private List<string> microGames;
+    [field: SerializeField] private MicroGame[] microGames;
 
-    public string ReturnNextScene(int currentMicroGame)
+
+    /// <summary>
+    /// This method returns the neext micro game
+    /// </summary>
+    public MicroGame ReturnNextGame(int currentMicroGame)
     {
-        string name = "";
+        MicroGame game = null;
 
-        if (currentMicroGame <= microGames.Count)
-            name = microGames[currentMicroGame];
+        if (currentMicroGame <= microGames.Length)
+            game = microGames[currentMicroGame];
 
-
-        Debug.Log(name);
-        return name;
+        return game;
     }
 }

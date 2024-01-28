@@ -1,6 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -27,14 +25,18 @@ public class GameManager : MonoBehaviour
 
 
     [Header("System")]
+    private MicroGame currentMicroGame;
+    private int gameCounter;// The amount of games completed so far
+
     private int currentLives;
     private float GameSpeedMult;
-    private int microGameCount;
     private bool countingDown;
     private float timeRemaining;
 
     public event Action OnComplete;
     public event Action OnFail;
+
+
 
 
     #region Init Methods
@@ -50,12 +52,44 @@ public class GameManager : MonoBehaviour
         instance = this;
 
         // Finish micro game subscribes to on OnComplete event
-        OnComplete += FinishMicroGame;
+        OnComplete += CompleteMicroGame;
 
         // Fail micro game subscribes to OnFail event
         OnFail += FailMicroGame;
     }
     #endregion
+
+
+
+    #region MicroGame Loop
+    /// <summary>
+    /// This method is called by the GameInitilializer, it starts the MicroGame loop.
+    /// </summary>
+    public void StartMicroGameLoop()
+    {
+        // Initialize game values
+        currentLives = 3;
+        GameSpeedMult = 1f;
+        gameCounter = 0;
+
+        // Start game loop
+        currentMicroGame = _sceneLoader.MicroGame_Index.ReturnNextGame(gameCounter);
+        _uIManager.StartMakeMeAnim(currentMicroGame);// Passes the prompt name to the UI
+    }
+
+
+
+    /// <summary>
+    /// This method is used to start a micro game after the transition has finished
+    /// </summary>
+    public void BeginMicroGame()
+    {
+        countingDown = true;
+        timeRemaining = currentMicroGame.Time;
+    }
+
+
+
 
     private void Update()
     {
@@ -67,58 +101,57 @@ public class GameManager : MonoBehaviour
                 FailMicroGame();
         }
     }
-
-
-
-    /// <summary>
-    /// This method is called by the GameInitilializer, it starts the MicroGame loop.
-    /// </summary>
-    public void StartMicroGames()
-    {
-        // Initialize game values
-        currentLives = 3;
-        GameSpeedMult = 1f;
-        microGameCount = 0;
-
-        // Load the first micro game
-        _uIManager.StartMakeMeAnim();
-    }
-
-    public int GetCurrentMicrogame()
-    {
-        return microGameCount;
-    }
-
-    #region MicroGame state methods
-    /// <summary>
-    /// This method should be called when a player completes a micro game.
-    /// </summary>
-    public void FinishMicroGame()
-    {
-        countingDown = false;
-        microGameCount++;
-    }
-
-    /// <summary>
-    /// This method should be called when a player fails a micro game.
-    /// </summary>
-    public void FailMicroGame()
-    {
-        countingDown = false;
-        currentLives--;
-        microGameCount++;
-        Debug.Log("Failed");
-    }
     #endregion
 
-    #region Scene transition methods
-    /// <summary>
-    /// This method is used to start a micro game after the transition has finished
-    /// </summary>
-    public void BeginMicroGame()
+
+
+
+    #region MicroGame state methods
+    public MicroGame GetCurrentMicrogame()
     {
-        countingDown = true;
-        timeRemaining = 5;
+        return currentMicroGame;
+    }
+
+
+
+
+    /// <summary>
+    /// This method should be called when a player completes a MicroGame.
+    /// </summary>
+    private void CompleteMicroGame()
+    {
+        FinishMicroGame();
+
+        currentMicroGame = _sceneLoader.MicroGame_Index.ReturnNextGame(gameCounter);
+        _uIManager.StartMakeMeAnim(currentMicroGame);// Passes the prompt name to the UI
+    }
+
+
+
+
+    /// <summary>
+    /// This method should be called when a player fails a MicroGame.
+    /// </summary>
+    private void FailMicroGame()
+    {
+        FinishMicroGame();
+        currentLives--;
+
+        // Load failed Anim
+        currentMicroGame = _sceneLoader.MicroGame_Index.ReturnNextGame(gameCounter);
+        _uIManager.FailedMakeMeAnim(currentMicroGame);
+    }
+
+
+
+
+    /// <summary>
+    /// Increments the MicroGame loop
+    /// </summary>
+    private void FinishMicroGame()
+    {
+        countingDown = false;
+        gameCounter++;
     }
     #endregion
 }

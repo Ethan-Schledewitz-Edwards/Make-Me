@@ -21,6 +21,6 @@ public class GameInitializer : MonoBehaviour
     private void StartGames()
     {
         // Start the first MicroGame using the GameManager
-        GameManager.Instance.StartMicroGames();
+        GameManager.Instance.StartMicroGameLoop();
     }
 }
