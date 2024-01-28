@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Gun : IDraggable
 {
+    [Header("Trigger Layers")]
     [SerializeField] private LayerMask layersTargetted;
 
     public override void Click()

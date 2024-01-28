@@ -10,7 +10,6 @@ public class CryingClown_Trigger : MonoBehaviour, ITrigger
 
     public void Trigger()
     {
-        Debug.Log("DIE");
         _animator.SetTrigger("Shot");
         PlayerInput.Instance.SetInputEnabled(false);
     }

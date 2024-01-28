@@ -15,7 +15,7 @@ public abstract class IDraggable: MonoBehaviour
 
     [Header("System")]
     protected Vector3 currentPos;
-    private bool followingMouse;
+    protected bool followingMouse;
 
     public void Start()
     {
@@ -25,7 +25,6 @@ public abstract class IDraggable: MonoBehaviour
         if (_startFollowingMouse)
             followingMouse = true;
 
-        //Subscribe SetMovementDirection to game buttons
         PlayerInput.Instance.OnClick += Click;
     }
 
