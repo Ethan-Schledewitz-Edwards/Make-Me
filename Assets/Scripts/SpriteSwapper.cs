@@ -10,7 +10,7 @@ public class SpriteSwapper : MonoBehaviour
 
     private void Start()
     {
-        SpriteChange();
+
     }
 
     void SpriteChange()
