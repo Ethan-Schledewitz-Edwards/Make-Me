@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 // Instead of having the player hard coded for each scene, this will be on the game manager and will serve as the player between scenes.

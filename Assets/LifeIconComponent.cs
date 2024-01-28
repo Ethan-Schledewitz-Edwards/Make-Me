@@ -1,4 +1,3 @@
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LifeIconComponent : MonoBehaviour
@@ -6,7 +5,10 @@ public class LifeIconComponent : MonoBehaviour
     [Header("Components")]
     [SerializeField] private Animator Animator;
 
-    [Header("Components")]
+    [Header("SFX")]
+    [SerializeField] private AudioClip _hurtEffect;
+
+    [Header("System")]
     private bool lost = false;
 
     public void LoseLife()
@@ -25,6 +27,6 @@ public class LifeIconComponent : MonoBehaviour
 
     public void PlayFunniSound()
     {
-
+        AudioManager.Instance.PlayClip(_hurtEffect);
     }
 }
