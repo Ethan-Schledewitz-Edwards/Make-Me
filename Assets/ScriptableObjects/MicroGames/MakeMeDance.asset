@@ -12,6 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d29190c44753efa45a4412c3c23397d7, type: 3}
   m_Name: MakeMeDance
   m_EditorClassIdentifier: 
+  <Context>k__BackingField: Me
   <PromptName>k__BackingField: Dance
   <SceneID>k__BackingField: MakeMeDance
-  <Time>k__BackingField: 5
+  <TimeAllowed>k__BackingField: 5
+  <PointsRequired>k__BackingField: 1

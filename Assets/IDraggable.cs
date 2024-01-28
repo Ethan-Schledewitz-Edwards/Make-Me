@@ -17,25 +17,34 @@ public abstract class IDraggable: MonoBehaviour
     Camera cam;
 
     [Header("System")]
-    private Vector3 currentPos;
+    protected Vector3 currentPos;
     private bool followingMouse;
 
     public void Start()
     {
+        cam = Camera.current;
+
         press.Enable();
         mousePos.Enable();
 
         if (_startFollowingMouse)
             followingMouse = true;
 
-        mousePos.performed += ctx => { currentPos = ctx.ReadValue<Vector2>(); };
+        //Subscribe SetMovementDirection to game buttons
+        InputManager.controls.Game.LeftClick.performed += context =>
+        {
+            if (PlayerInput.Instance.CheckInputEnabled())
+                Click();
+        };
     }
 
     private void FixedUpdate()
     {
         if (followingMouse)
         {
-            transform.position = currentPos;
+            Vector3 newPos = Camera.main.ScreenToWorldPoint(PlayerInput.Instance.GetMousePos());
+            newPos.z = 0;
+            transform.position = newPos;
         }
     }
 

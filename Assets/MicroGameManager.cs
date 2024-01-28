@@ -1,15 +1,21 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public abstract class MicroGameManager : MonoBehaviour
 {
+    public static MicroGameManager instance;
+
     private MicroGame microGame;
     private int pointsRequired;
     private int currentPoints;
 
 
+    private void Awake()
+    {
+        instance = this;
 
+        if (PlayerInput.Instance == null)
+            PlayerInput.Instance.SetInputEnabled(true);
+    }
 
     public void SetMicroGame(MicroGame game)
     {

@@ -20,6 +20,11 @@ public class AudioManager : MonoBehaviour
     [Header("Components")]
     [SerializeField] private AudioSource _audioSource;
 
+    private void Awake()
+    {
+        instance = this;
+    }
+
     public void PlayClip(AudioClip audioClip)
     {
         _audioSource.PlayOneShot(audioClip);

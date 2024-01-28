@@ -42,6 +42,7 @@ public class GameManager : MonoBehaviour
     #region Init Methods
     public static GameObject CreateSingletonManager()
     {
+        Debug.Log("f");
         var managerPrefab = Instantiate(Resources.Load<GameObject>("Managers/GameManager"));
         DontDestroyOnLoad(managerPrefab);
         return managerPrefab;
@@ -86,6 +87,7 @@ public class GameManager : MonoBehaviour
     {
         countingDown = true;
         timeRemaining = currentMicroGame.TimeAllowed;
+        PlayerInput.Instance.SetInputEnabled(true);
     }
 
 
@@ -137,6 +139,10 @@ public class GameManager : MonoBehaviour
         FinishMicroGame();
         currentLives--;
 
+        // Close the game if you run out of lives
+        if (currentLives <= 0)
+            Application.Quit();
+
         // Load failed Anim
         currentMicroGame = _sceneLoader.MicroGame_Index.ReturnNextGame(gameCounter);
         _uIManager.FailedMakeMeAnim(currentMicroGame);
@@ -150,6 +156,7 @@ public class GameManager : MonoBehaviour
     /// </summary>
     private void FinishMicroGame()
     {
+        PlayerInput.Instance.SetInputEnabled(false);
         countingDown = false;
         gameCounter++;
     }

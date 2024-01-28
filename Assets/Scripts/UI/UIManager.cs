@@ -54,8 +54,6 @@ public class UIManager : MonoBehaviour
 
     public void FailedMakeMeAnim(MicroGame microGame)
     {
-        Debug.Log("BALLZ");
-
         Animator.SetTrigger("Failed");
         _contextText.text = microGame.Context;
         _promptText.text = microGame.PromptName;

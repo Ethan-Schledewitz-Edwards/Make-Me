@@ -12,7 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d29190c44753efa45a4412c3c23397d7, type: 3}
   m_Name: MakeItStop
   m_EditorClassIdentifier: 
-  <PromptName>k__BackingField: 
-  <SceneID>k__BackingField: 
-  <TimeAllowed>k__BackingField: 0
-  <PointsRequired>k__BackingField: 0
+  <Context>k__BackingField: It
+  <PromptName>k__BackingField: Stop
+  <SceneID>k__BackingField: MakeItStop
+  <TimeAllowed>k__BackingField: 1000
+  <PointsRequired>k__BackingField: 1
