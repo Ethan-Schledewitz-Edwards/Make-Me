@@ -66,6 +66,9 @@ public class GameManager : MonoBehaviour
         // Start game loop
         currentMicroGame = _sceneLoader.MicroGame_Index.ReturnNextGame(gameCounter);
         _uIManager.StartMakeMeAnim(currentMicroGame);// Passes the prompt name to the UI
+
+        // Start music
+        MusicManager.Instance.PlayMusic();
     }
 
 

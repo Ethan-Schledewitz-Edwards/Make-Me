@@ -9,7 +9,7 @@ public abstract class MicroGameManager : MonoBehaviour
     private int currentPoints;
 
 
-    private void Awake()
+    protected virtual void Awake()
     {
         Instance = this;
 

@@ -45,9 +45,6 @@ public class Feather_Trigger : IDraggable, ITrigger
 
     public override void Click()
     {
-
-        Debug.Log("BALLZ");
-
         if (followingMouse)
         {
             RaycastHit2D hit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(PlayerInput.Instance.GetMousePos()), -Vector2.up, layersTargetted);

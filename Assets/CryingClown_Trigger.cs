@@ -8,8 +8,12 @@ public class CryingClown_Trigger : MonoBehaviour, ITrigger
     [SerializeField] private string id;
     public string ID => id;
 
+    [SerializeField] private AudioClip _hurtEffect;
+    [SerializeField] private AudioClip _tromboneWahWah;
+
     public void Trigger()
     {
+        AudioManager.Instance.PlayClip(_hurtEffect);
         _animator.SetTrigger("Shot");
         PlayerInput.Instance.SetInputEnabled(false);
     }
@@ -23,5 +27,11 @@ public class CryingClown_Trigger : MonoBehaviour, ITrigger
     public void FinishScene()
     {
         Application.Quit();
+    }
+
+
+    public void PlayTrobone()
+    {
+        AudioManager.Instance.PlayClip(_tromboneWahWah);
     }
 }

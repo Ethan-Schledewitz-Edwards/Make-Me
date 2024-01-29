@@ -10556,6 +10556,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _animator: {fileID: 2128657957}
   id: Clown
+  _hurtEffect: {fileID: 8300000, guid: 571467d41c53cba44a616df1a1c0b0b6, type: 3}
+  _tromboneWahWah: {fileID: 8300000, guid: 6fabf09ebf2b64549bd04f952056ba3e, type: 3}
 --- !u!61 &2128657959
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -10592,7 +10594,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8.5625, y: 10}
+    oldSize: {x: 8.5625, y: 10.0625}
     newSize: {x: 1.37, y: 1.6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -10637,7 +10639,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 8.5625, y: 10}
+    oldSize: {x: 8.5625, y: 10.0625}
     newSize: {x: 1.37, y: 1.6}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
